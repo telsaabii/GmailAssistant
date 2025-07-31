@@ -63,15 +63,21 @@ OPENAI_API_KEY=your_openai_api_key_here
 
 ### 3. Generate Token
 
-Run the authentication script to generate your token:
+The `token.json` file will be automatically generated the first time you run the Gmail Assistant and it needs to authenticate with Gmail. When you first run:
+
 ```bash
-python test.py
+python main.py
 ```
 
-This will:
+If no `token.json` exists, the system will:
 - Open a browser window for Google OAuth authorization
-- Generate a `token.json` file with your access credentials
-- **Important**: Keep both `credentials.json` and `token.json` private and never commit them to version control
+- Prompt you to log in to your Google account
+- Ask for permission to access Gmail
+- Automatically generate and save `token.json` with your access credentials
+
+**Important**: Keep both `credentials.json` and `token.json` private and never commit them to version control
+
+**Note**: `test.py` is just for testing the Gmail toolkit functionality and viewing available tools - it doesn't generate tokens.
 
 ## Usage
 
@@ -182,6 +188,7 @@ Key packages used:
 - `langchain-openai`: OpenAI LLM integration
 - `google-api-python-client`: Google API client
 - `python-dotenv`: Environment variable management
+
 
 
 ---
